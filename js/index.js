@@ -12,18 +12,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function mostarPlatillo(platillo, id){
   contenido = `
-  <div class='card-panel recipe white row'>
+  <div class='card-panel recipe white row' id='${id}'>
        <div class='recipe-details'> 
-            <div class='recipe-titulo'> 
+            <div class='recipe-title'> 
                 ${platillo.nombre}
             </div>
 
             <div class='recipe-ingredientes'> 
                 ${platillo.ingredientes}
             </div>
+
+            <div class='recipe-price'> 
+                ${'$' + platillo.precio}
+            </div>
+            <div class="recipe-delete">
+            <i data-id='${id}'>
+            </i>
+            <img src="img/icono-bote.png" class="icono-bote">
+            </div>
        </div>
   </div>
   `;
   document.querySelector(".recipes")
   .innerHTML += contenido;
+}
+
+function actualizarPlatillo(platillo, id) {
+  let tarjeta = document.getElementById(`${id}`);
+  tarjeta.querySelector(".recipe-title").innerHTML = platillo.nombre;
+  tarjeta.querySelector(".recipe-ingredientes").innerHTML = platillo.ingredientes;
+  tarjeta.querySelector(".recipe-price").innerHTML = platillo.precio;
 }

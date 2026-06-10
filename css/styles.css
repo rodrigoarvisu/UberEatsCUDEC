@@ -1,8 +1,8 @@
 /* colours */
 :root{
-  --primary: #FFE9D2;
-  --secondary: #FFE1C4;
-  --title: #FF8816;
+  --primary: #ead2b9;
+  --secondary: #f6a356;
+  --title: #ff8716d6;
 }
 
 /* layout styles */
@@ -26,9 +26,9 @@ nav .sidenav-trigger{
   margin-top: 20px;
 }
 .card-panel.recipe{
-  border-radius: 8px;
+  border-radius: 18px;
   padding: 10px;
-  box-shadow: 0px 1px 3px rgba(90,90,90,0.1);
+  box-shadow: 0px 1px 3px rgba(49, 49, 49, 0.1);
   display: grid;
   grid-template-columns: 2fr 6fr 1fr;
   grid-template-areas: "image details delete";
@@ -49,13 +49,21 @@ nav .sidenav-trigger{
   right: 0px;
 }
 .recipe-delete i{
-  font-size: 18px;
+  font-size: 28px;
+  background-color: rgb(206, 205, 205);
+  border-radius: 18px;
 }
 .recipe-title{
   font-weight: bold;
+  font-size: 20px;
 }
 .recipe-ingredients{
   font-size: 0.8em;
+}
+
+.recipe-price{
+  color: #FF8816;
+  font-size: 25px;
 }
 
 /* form-styles */
@@ -72,4 +80,19 @@ input{
 }
 form .input-field{
   margin-top: 30px;
+}
+.icono-bote{
+  background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 4px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 30px;
+    width: 30px;
+    transition: all 0.3s ease;
+}
+.icono-bote:hover{
+  background-color: #ecc3c3;
+  transform: translateY(-5px);
 }
