@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function mostarPlatillo(platillo, id){
   contenido = `
-  <div class='card-panel recipe white row' id='${id}'>
+  <div class='card-panel recipe white row' id='${id}' data-id='${id}'>
        <div class='recipe-details'> 
             <div class='recipe-title'> 
                 ${platillo.nombre}
@@ -22,13 +22,13 @@ function mostarPlatillo(platillo, id){
                 ${platillo.ingredientes}
             </div>
 
-            <div class='recipe-price'> 
+            <div class='recipe-price'>
                 ${'$' + platillo.precio}
             </div>
             <div class="recipe-delete">
             <i data-id='${id}'>
             </i>
-            <img src="img/icono-bote.png" class="icono-bote">
+            <img src="img/icono-bote.png" class="icono-bote" data-id='${id}'>
             </div>
        </div>
   </div>
@@ -41,5 +41,11 @@ function actualizarPlatillo(platillo, id) {
   let tarjeta = document.getElementById(`${id}`);
   tarjeta.querySelector(".recipe-title").innerHTML = platillo.nombre;
   tarjeta.querySelector(".recipe-ingredientes").innerHTML = platillo.ingredientes;
-  tarjeta.querySelector(".recipe-price").innerHTML = platillo.precio;
+  tarjeta.querySelector(".recipe-price").innerHTML = '$' + platillo.precio;
 }
+
+const removeRecipe = (id) => {
+  const platillo = document.querySelector(`.recipe[data-id="${id}"]`);
+  platillo.remove();
+}
+

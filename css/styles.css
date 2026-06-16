@@ -96,3 +96,11 @@ form .input-field{
   background-color: #ecc3c3;
   transform: translateY(-5px);
 }
+
+.btn-small{
+ border-radius: 18px;
+}
+
+.btn-small:hover{
+  background-color: #f07e04;
+}
