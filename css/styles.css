@@ -104,3 +104,29 @@ form .input-field{
 .btn-small:hover{
   background-color: #f07e04;
 }
+
+.pedido-container{
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+#formPedido{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.input-field{
+    margin-bottom: 25px;
+}
+
+.botones{
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 18px;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+

@@ -25,9 +25,8 @@
   <!-- side nav -->
   <ul id="side-menu" class="sidenav side-menu">
     <li><a class="subheader">FOODNINJA</a></li>
-    <li><a href="/" class="waves-effect">Home</a></li>
-    <li><a href="/pages/about.html" class="waves-effect">About</a></li>
-    <li><a href="/pages/pedidos.html" class="waves-effect">Pedidos</a></li>
+    <li><a href="/" class="waves-effect">Inicio</a></li>
+    <li><a href="/pages/about.html" class="waves-effect">Acerca</a></li>
     <li><div class="divider"></div></li>
     <li><a href="/pages/contact.html" class="waves-effect">
       <i class="material-icons">mail_outline</i>Contact</a>
@@ -35,16 +34,38 @@
   </ul>
 
   <!-- content -->
-  <div class="container grey-text">
-    <h5 class="center">Contact Us</h5>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, porro voluptatum illum veniam eaque sunt sit labore provident eligendi! Voluptate amet suscipit inventore unde maxime atque impedit officia nobis laboriosam!</p>
-    <div class="divider"></div>
-    <h6>Find us at:</h6>
-    <ul>
-      <li>123 Spicy Noodle Road</li>
-      <li>Manchester, UK</li>
-    </ul>
-  </div>
+ <div class="pedido-container">
+    <form id="formPedido">
+
+        <div class="input-field">
+            <select id="listaPlatillo" name="platillo">
+                <option value="" disabled selected>Selecciona un platillo</option>
+            </select>
+            <label>Platillo</label>
+        </div>
+
+        <div class="input-field">
+            <input type="text" id="nombre" name="nombre">
+            <label for="nombre">Nombre</label>
+        </div>
+
+        <div class="input-field">
+            <input type="text" id="direccion" name="direccion">
+            <label for="direccion">Dirección</label>
+        </div>
+
+        <div class="botones">
+            <button type="button" class="btn grey">
+                Cancelar
+            </button>
+
+            <button type="submit" class="btn orange">
+                Guardar
+            </button>
+        </div>
+
+    </form>
+</div>
 
    <script src="/js/index.js"></script>
   <script src="/js/db.js"></script>
