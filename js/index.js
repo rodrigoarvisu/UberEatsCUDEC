@@ -49,19 +49,4 @@ const removeRecipe = (id) => {
   platillo.remove();
 }
 
-function agregarALista(platillo, id){
 
-  const lista = document.getElementById("listaPlatillo");
-
-  if (!lista) return;
-
-  let contenidoLista = `
-    <option value="${id}">
-      ${platillo.nombre} - $${platillo.precio}
-    </option>
-  `;
-
-  lista.innerHTML += contenidoLista;
-
-  M.FormSelect.init(lista);
-}
