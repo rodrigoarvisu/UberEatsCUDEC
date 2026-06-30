@@ -54,3 +54,38 @@ formularioPedido.addEventListener("submit", (e) => {
         });
 });
 
+document.getElementById("btnUbi").addEventListener("click", function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(exito, error);
+    }else{
+        Swal.fire({
+            title: "¡Error!",
+            text: "No se pudo obtener la ubicación",
+            icon: "error",
+            confirmButtonText: "Aceptar"
+        });
+    }
+});
+
+function exito(posicion){
+    let latitud = posicion.coords.latitude;
+    let longitud = posicion.coords.longitud;
+    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitud}&format=json`, {
+        headers: {
+            'User-Agent': 'UberRodrigo (rodrigo_arvisu@hotmail.com)'
+        }
+    })
+    .then(respuesta => respuesta.json())
+    .then(data => alert(data.display_name))
+    .catch(error => console.error(error));
+}
+
+function error(err) {
+    Swal.fire({
+        title: "¡Error!",
+        text: "No se pudo obtener la ubicación: " + err.message,
+        icon: "error",
+        confirmButtonText: "Aceptar"
+    });
+    console.log(error);
+}

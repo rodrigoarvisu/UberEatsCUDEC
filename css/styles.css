@@ -123,10 +123,25 @@ form .input-field{
 
 .botones{
     display: flex;
-    justify-content: flex-end;
-    border-radius: 18px;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     margin-top: 20px;
 }
+
+.botones .btn{
+    display: inline-block !important;
+}
+
+.ubicacion{
+    margin-top:20px;
+}
+
+#btnUbi{
+    width:100%;
+    background:#42a5f5 !important;
+}
+
+
 
 
