@@ -69,18 +69,27 @@ document.getElementById("btnUbi").addEventListener("click", function() {
 
 function exito(posicion){
     let latitud = posicion.coords.latitude;
-    let longitud = posicion.coords.longitud;
-    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitud}&format=json`, {
+    let longitud = posicion.coords.longitude;
+    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon=${longitud}&format=json`, {
         headers: {
             'User-Agent': 'UberRodrigo (rodrigo_arvisu@hotmail.com)'
         }
     })
     .then(respuesta => respuesta.json())
-    .then(data => alert(data.display_name))
+    .then(data => {
+        document.getElementById("direccion").value = data.display_name;
+        M.updateTextFields();
+    Swal.fire({
+        title: "Ubicación obtenida",
+        text: data.display_name,
+        icon: "success",
+        confirmButtonText: "Aceptar"
+       });
+    })
     .catch(error => console.error(error));
 }
 
-function error(err) {
+function error(error) {
     Swal.fire({
         title: "¡Error!",
         text: "No se pudo obtener la ubicación: " + err.message,
