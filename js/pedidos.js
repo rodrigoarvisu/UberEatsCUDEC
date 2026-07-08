@@ -79,6 +79,12 @@ function exito(posicion){
     .then(data => {
         document.getElementById("direccion").value = data.display_name;
         M.updateTextFields();
+        var map = L.map('mapa').setView([latitud, longitud], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">'
+        }).addTo(map); 
+        var marker = L.marker([latitud, longitud]).addTo(map);
     Swal.fire({
         title: "Ubicación obtenida",
         text: data.display_name,
@@ -92,7 +98,7 @@ function exito(posicion){
 function error(error) {
     Swal.fire({
         title: "¡Error!",
-        text: "No se pudo obtener la ubicación: " + err.message,
+        text: "No se pudo obtener la ubicación: " + error.message,
         icon: "error",
         confirmButtonText: "Aceptar"
     });

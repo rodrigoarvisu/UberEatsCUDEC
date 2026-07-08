@@ -101,6 +101,10 @@ form .input-field{
  border-radius: 18px;
 }
 
+.btn-img{
+ border-radius: 18px;
+}
+
 .btn-small:hover{
   background-color: #f07e04;
 }
