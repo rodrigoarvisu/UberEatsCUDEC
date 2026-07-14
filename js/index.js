@@ -71,5 +71,44 @@ btnFoto.addEventListener('click', function() {
    });
 })
 
+video.addEventListener("canplay", () => {
+  if(!streaming) {
+    height = video.videoHeight / (video.videoWidth / width);
+    video.setAttribute("width", width);
+    video.setAttribute("height", height);
+    canvas.setAttribute("width", width);
+    canvas.setAttribute("height", height);
+    streaming = true;
+  }
+})
 
+function tomarFoto() {
+  const contexto = canvas.getContext("2d");
+
+  if (width && height) {
+    canvas.width = width;
+    canvas.height = height;
+    contexto.drawImage(video, 0, 0, width, height);
+    const fotoFinal = canvas.toDataURL("image/png")
+    foto.setAttribute("src", fotoFinal);
+    foto.style.display = "block";
+  }
+  else {
+    limpiarFoto();
+  }
+}
+
+const btnTomarFoto = document.getElementById("btn-tomar-foto");
+
+btnTomarFoto.addEventListener("click", tomarFoto);
+
+
+function limpiarFoto() {
+  const contexto = canvas.getContext("2d");
+
+  contexto.fillStyle = 'orange';
+  contexto.fillRect(0, 0, canvas.width, canvas.height);
+
+  foto.setAttribute("src", "")
+}
 

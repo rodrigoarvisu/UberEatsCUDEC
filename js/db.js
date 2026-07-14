@@ -5,7 +5,7 @@ db.collection("platillos").onSnapshot((coleccion) => {
         }
         if (registro.type === "modified") {
             actualizarPlatillo(registro.doc.data(), registro.doc.id);
-        }
+        }   
         if (registro.type === "removed") {
             removeRecipe(registro.doc.id);
         }
