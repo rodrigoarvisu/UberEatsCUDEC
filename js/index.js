@@ -11,8 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function mostarPlatillo(platillo, id){
+  let fotoPlatillo;
+  if(platillo.imagen) {
+    fotoPlatillo = "data:image/png;base64, " + platillo.imagen;
+  }
+  else{
+    fotoPlatillo = "img/sin-imagen.png";
+  }
   contenido = `
   <div class='card-panel recipe white row' id='${id}' data-id='${id}'>
+
+       <img src="${fotoPlatillo}" class="recipe-img" height="70px" width="140px" class="img">
+
        <div class='recipe-details'> 
             <div class='recipe-title'> 
                 ${platillo.nombre}
@@ -55,6 +65,7 @@ let height = 0;
 const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const foto = document.getElementById('foto');
+const fotoInput = document.getElementById('fotoBase64');
 const btnFoto = document.getElementById('btn-foto');
 
 btnFoto.addEventListener('click', function() {
@@ -89,11 +100,11 @@ function tomarFoto() {
     canvas.width = width;
     canvas.height = height;
     contexto.drawImage(video, 0, 0, width, height);
-    const fotoFinal = canvas.toDataURL("image/png")
-    foto.setAttribute("src", fotoFinal);
-    foto.style.display = "block";
-  }
-  else {
+    const fotoFinal = canvas.toDataURL("image/png");
+    foto.setAttribute("src", fotoFinal);      
+    const fotoBase64 = fotoFinal.replace("data:image/png;base64,", "");
+    fotoInput.value = fotoBase64;              
+  } else {
     limpiarFoto();
   }
 }

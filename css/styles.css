@@ -196,6 +196,8 @@ form .input-field{
   padding: 0;
 }
 
+
+
 #btn-tomar-foto::after {
   content: "";
   width: 52px;

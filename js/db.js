@@ -19,6 +19,7 @@ formularioAgregar.addEventListener("submit", (e) => {
         nombre: formularioAgregar.title.value,
         ingredientes: formularioAgregar.ingredients.value,
         precio: formularioAgregar.precio.value,
+        imagen: document.getElementById("fotoBase64").value
     }
 
     db.collection("platillos").add(platilloNuevo)
