@@ -1,6 +1,5 @@
 let contenido = "";
 
-
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
   const menus = document.querySelectorAll('.side-menu');
@@ -70,7 +69,11 @@ const btnFoto = document.getElementById('btn-foto');
 
 btnFoto.addEventListener('click', function() {
    navigator.mediaDevices.getUserMedia({
-    video: true,
+    video: {
+      facingMode: {
+        ideal: "environment"
+      }
+    },
     audio: false
    })
    .then((stream) => {
