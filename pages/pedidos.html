@@ -15,9 +15,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
   crossorigin=""></script>
-  <style>
-    #mapa { height: 200px; margin-top: 15px ; border-radius: 15px; }
-  </style>
+  
   <link rel="manifest" href="manifest.json">
 
 <meta name="mobile-web-app-capable" content="yes">
@@ -114,13 +112,21 @@
         </div>
     </form>
 
-    <div class="ubicación">
+    <div class="ubicacion">
             <button type="button" class="btn blue" id="btnUbi">
                 Obtener ubicación
             </button>
             <div id="mapa">
-              
             </div>
+
+            <div class="qr-resultado">
+  <div id="test"></div>
+
+  <div class="qr-info">
+    <span>Platillo solicitado</span>
+    <p id="nombre-platillo"></p>
+  </div>
+</div>
     </div>
 
 </div>
@@ -129,9 +135,11 @@
 
 <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script src="../js/firebase.js"></script>
 <script src="../js/index.js"></script>
+<script src="../js/qrcode.min.js"></script>
 <script src="../js/pedidos.js"></script>
 </body>
 </html>

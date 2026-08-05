@@ -86,41 +86,59 @@
 
   <!-- Agregar platillo -->
   <div id="side-form" class="sidenav side-form">
-    <form class="add-recipe container section">
-      <h6 >Nuevo platillo</h6>
-      <div class="divider"></div>
-      <div class="input-field">
-        <input placeholder="Ingresa el nombre" id="title" type="text" class="validate">
-        <label for="title">Nombre</label>
-      </div>
-      <div class="input-field">
-        <input placeholder="Ingresa los ingredientes" id="ingredients" type="text" class="validate">
-        <label for="ingredients">Ingredientes</label>
-      </div>
-      <input id="fotoBase64" type="hidden">
-      <div class="input-field">
-        <input placeholder="Ingresa el precio" id="precio" type="text" class="validate">
-        <label for="ingredients">Precio</label>
-      </div>
-      <div class="input-field center">
-        <button class="btn-small">Agregar</button>
-      </div>
-    </form>
-    <div class="input-field center">
-    <button class="btn-img" id="btn-foto">
-      Imagen
-    </button>
+    <form class="add-recipe">
+  <div class="form-header">
+    <div class="form-icon">
+      <i class="material-icons">restaurant_menu</i>
     </div>
-    <div id="camara">
-  <video id="video">No hay video disponible</video>
+    <div>
+      <h6>Nuevo platillo</h6>
+      <p>Agrega los datos de tu menú</p>
+    </div>
+  </div>
+
+  <div class="input-field campo-form">
+  <label class="field-label" for="title">Nombre del platillo</label>
+  <i class="material-icons prefix">restaurant</i>
+  <input placeholder="Ej. Pasta Alfredo" id="title" type="text" class="validate">
 </div>
 
-<canvas id="canvas"></canvas>
-
-<div id="salida">
-  <button type="button" id="btn-tomar-foto"></button>
-  <img id="foto" src="" alt="Foto del platillo">
+<div class="input-field campo-form">
+  <label class="field-label" for="ingredients">Ingredientes</label>
+  <i class="material-icons prefix">format_list_bulleted</i>
+  <input placeholder="Ej. Pasta, crema y queso" id="ingredients" type="text" class="validate">
 </div>
+
+<div class="input-field campo-form">
+  <label class="field-label" for="precio">Precio</label>
+  <i class="material-icons prefix">attach_money</i>
+  <input placeholder="Ej. 85" id="precio" type="text" class="validate">
+</div>
+
+  <button type="button" class="btn-img" id="btn-foto">
+    <i class="material-icons">photo_camera</i>
+    Tomar fotografía
+  </button>
+
+  <div id="camara">
+    <video id="video" autoplay playsinline>No hay video disponible</video>
+
+    <button type="button" id="btn-tomar-foto" aria-label="Capturar fotografía">
+      <i class="material-icons">photo_camera</i>
+    </button>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <div id="salida">
+    <img id="foto" src="" alt="Vista previa del platillo">
+  </div>
+
+  <button type="submit" class="btn-agregar">
+    <i class="material-icons">add_circle</i>
+    Agregar platillo
+  </button>
+</form>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 

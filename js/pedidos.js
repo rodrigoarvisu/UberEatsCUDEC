@@ -39,6 +39,23 @@ formularioPedido.addEventListener("submit", (e) => {
                 confirmButtonText: "Aceptar"
             });
 
+            const nombrePlatillo =
+            document.querySelector("#listaPlatillo option:checked").text.split(" - $")[0];
+
+            document.getElementById("nombre-platillo").textContent = nombrePlatillo;
+
+
+            document.getElementById("test").innerHTML = "";
+
+                new QRCode("test", {
+                   text: document.querySelector("#listaPlatillo option:checked").text.split(" - $")[0],
+                   width: 128,
+                   height: 128,
+                   colorDark: "#000000",
+                   colorLight: "#ffffff",
+                   correctLevel: QRCode.CorrectLevel.H
+                });
+
             formularioPedido.reset();
             M.FormSelect.init(document.querySelectorAll("select"));
         })
