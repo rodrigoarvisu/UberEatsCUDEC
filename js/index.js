@@ -69,6 +69,7 @@ const foto = document.getElementById("foto");
 const fotoInput = document.getElementById("fotoBase64");
 const btnFoto = document.getElementById("btn-foto");
 const btnTomarFoto = document.getElementById("btn-tomar-foto");
+const camara = document.getElementById("camara");
 
 btnFoto.addEventListener("click", function () {
   navigator.mediaDevices
@@ -84,10 +85,11 @@ btnFoto.addEventListener("click", function () {
       streamActual = stream;
       streaming = false;
 
+      camara.style.display = "flex";
       video.srcObject = stream;
       video.style.display = "block";
       foto.style.display = "none";
-
+      
       btnTomarFoto.style.display = "flex";
       video.play();
     })
@@ -123,6 +125,7 @@ function detenerCamara() {
   video.pause();
   video.srcObject = null;
   video.style.display = "none";
+  camara.style.display = "none";
 }
 
 function tomarFoto() {
