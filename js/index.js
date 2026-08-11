@@ -85,11 +85,11 @@ btnFoto.addEventListener("click", function () {
       streamActual = stream;
       streaming = false;
 
-      camara.style.display = "flex";
+      camara.classList.remove("oculto");
+
       video.srcObject = stream;
       video.style.display = "block";
       foto.style.display = "none";
-      
       btnTomarFoto.style.display = "flex";
       video.play();
     })
@@ -115,19 +115,6 @@ video.addEventListener("canplay", () => {
   }
 });
 
-function detenerCamara() {
-  if (streamActual) {
-    streamActual.getTracks().forEach((track) => track.stop());
-    streamActual = null;
-  }
-
-  btnTomarFoto.style.display = "none";
-  video.pause();
-  video.srcObject = null;
-  video.style.display = "none";
-  camara.style.display = "none";
-}
-
 function tomarFoto() {
   const contexto = canvas.getContext("2d");
 
@@ -139,16 +126,35 @@ function tomarFoto() {
 
     const fotoFinal = canvas.toDataURL("image/png");
 
+    // Ocultar TODO lo relacionado a la cámara primero
+    video.style.display = "none";
+    canvas.style.display = "none";
+    btnTomarFoto.style.display = "none";
+    camara.style.display = "none";
+
+    // Mostrar solo la foto capturada
     foto.src = fotoFinal;
     foto.style.display = "block";
 
     fotoInput.value = fotoFinal.replace("data:image/png;base64,", "");
 
-    
     detenerCamara();
   } else {
     limpiarFoto();
   }
+}
+
+function detenerCamara() {
+  if (streamActual) {
+    streamActual.getTracks().forEach((track) => track.stop());
+    streamActual = null;
+  }
+
+  video.pause();
+  video.srcObject = null;
+  video.style.display = "none";
+  btnTomarFoto.style.display = "none";
+  camara.style.display = "none";
 }
 
 btnTomarFoto.addEventListener("click", tomarFoto);
@@ -162,3 +168,29 @@ function limpiarFoto() {
   foto.src = "";
   foto.style.display = "none";
 }
+
+btnFoto.addEventListener("click", function () {
+  navigator.mediaDevices
+    .getUserMedia({
+      video: { facingMode: { ideal: "environment" } },
+      audio: false
+    })
+    .then((stream) => {
+      streamActual = stream;
+      streaming = false;
+
+      camara.classList.remove("oculto");
+
+      video.srcObject = stream;
+      video.style.display = "block";
+      foto.style.display = "none";
+      btnTomarFoto.style.display = "flex";
+      video.play();
+
+      // Desplaza la vista para que se vea el botón de captura
+      camara.scrollIntoView({ behavior: "smooth", block: "center" });
+    })
+    .catch((error) => {
+      console.log("No fue posible acceder a la cámara:", error);
+    });
+});
