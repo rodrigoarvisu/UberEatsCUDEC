@@ -211,20 +211,21 @@ nav .sidenav-trigger{ margin: 0; }
 .form-header p{ margin: 0; color: #84929d; font-size: 0.79rem; }
 
 /* Campos con etiqueta arriba del input (usados en el panel de platillo).
-   Se usa grid en vez de position:absolute con valores fijos: así el
-   ícono siempre queda centrado según la altura REAL que termine
-   teniendo el input, sin depender de adivinar píxeles. */
+   Posición absoluta forzada con !important para que gane sí o sí sobre
+   los estilos propios de Materialize (que si no, se pelean por el
+   "left"/"position" del ícono y lo terminan mandando a la derecha). */
 #side-form .campo-form{
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  grid-template-rows: auto auto;
+  position: relative;
   margin: 0 0 27px;
+  padding-top: 23px;
 }
 #side-form .campo-form .field-label{
-  grid-column: 1 / -1;
-  grid-row: 1;
+  position: absolute !important;
+  top: 0 !important;
+  left: 2px !important;
+  right: auto !important;
   display: block;
-  margin: 0 0 6px 2px;
+  margin: 0;
   color: #7b8994;
   font-size: 0.82rem;
   font-weight: 600;
@@ -232,23 +233,26 @@ nav .sidenav-trigger{ margin: 0; }
   transform: none !important;
 }
 #side-form .campo-form .prefix{
-  grid-column: 1;
-  grid-row: 2;
+  position: absolute !important;
+  top: 50% !important;
+  left: 15px !important;
+  right: auto !important;
+  transform: translateY(-50%) !important;
   z-index: 1;
-  align-self: center;
-  justify-self: center;
-  margin-top: 6px;          /* lo baja un poco respecto al centro exacto */
+  margin: 0 !important;
+  width: auto !important;
   color: #a2adb5;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1;
   pointer-events: none;    /* que no bloquee el click sobre el input */
 }
 #side-form .campo-form input{
-  grid-column: 1 / -1;
-  grid-row: 2;
-  height: 54px;
+  position: relative;
+  width: 100%;
+  height: 60px;                    /* input un poco más grande */
   margin: 0;
-  padding-left: 46px !important;
+  padding-left: 48px !important;
+  font-size: 1rem;
   background: #fbfcfd;
   border: 1px solid #dfe5e8 !important;
   border-radius: 14px !important;
