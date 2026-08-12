@@ -125,4 +125,19 @@ UberEatsCUDEC/
 ### ℹ️ Acerca
 <img src="img/acerca.jpeg" height="400px" width="auto">
 
+### 📧 Contacto
+<img src="img/contacto.jpeg" height="400px" width="auto">
 
+### Base de datos
+
+La aplicación utiliza **Firebase Cloud Firestore**, una base de datos NoSQL en la nube. Permite almacenar y consultar la información de platillos y pedidos sin administrar un servidor propio.
+
+| Colección | Información almacenada |
+| --- | --- |
+| `platillos` | `nombre`, `ingredientes` y `precio`  |
+| `pedidos` | `nombre`, `direccion` y `platilloId` |
+
+Cada documento se identifica con un ID generado automáticamente por Firestore. La colección `pedidos` se relaciona con `platillos` mediante el campo `platilloId`.
+
+
+Este proyecto fue desarrollado con fines académicos como parte de la carrera **Ingenieria en Sistemas Computacionales**, para la materia **Taller de programación avanzada**, del grupo **09ISC182** en **Univerisdad Multicultural CUDEC**.
