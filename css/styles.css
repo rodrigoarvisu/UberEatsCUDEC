@@ -1,473 +1,75 @@
-/* colours */
+/* ==========================================================================
+   FOODNINJA — HOJA DE ESTILOS
+   Reorganizado y depurado: 1 sola fuente de variables, sin selectores
+   duplicados/conflictivos, agrupado por sección de la app.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES GLOBALES
+   Antes había 3 bloques :root distintos (con --primary definido dos veces
+   con valores distintos: #ead2b9 y #ee641b) y colores de texto/gris
+   repetidos con leves variaciones (#263238/#28333c, #71808b/#78909c/#607d8b).
+   Se deja un único set de variables, ya que #ee641b es el color que
+   realmente se usa en todas las pantallas actuales (nav, botones, iconos).
+   -------------------------------------------------------------------------- */
 :root{
-  --primary: #ead2b9;
-  --secondary: #f6a356;
-  --title: #ff8716d6;
+  --primary: #ee641b;
+  --primary-soft: #fff0e7;
+  --primary-light: #ffb37a;
+  --ink: #263238;
+  --muted: #71808b;
+  --surface: #ffffff;
 }
 
-/* layout styles */
-nav{
-  background: var(--primary);
-  border-bottom: 10px solid var(--secondary);
-}
-nav a{
-  text-transform: uppercase;
-  color: var(--title);
-}
-nav a span{
-  font-weight: bold;
-}
-nav .sidenav-trigger{
-  margin: 0;
-}
-
-/* recipe styles */
-.recipes{
-  margin-top: 20px;
-}
-.card-panel.recipe{
-  border-radius: 18px;
-  padding: 10px;
-  box-shadow: 0px 1px 3px rgba(49, 49, 49, 0.1);
-  display: grid;
-  grid-template-columns: 2fr 6fr 1fr;
-  grid-template-areas: "image details delete";
-  position: relative;
-}
-.recipe img{
-  grid-area: image;
-  max-width: 60px;
-}
-.recipe-details{
-  grid-area: details;
-  margin-top: 6px;
-}
-.recipe-delete{
-  grid-area: delete;
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-}
-.recipe-delete i{
-  font-size: 28px;
-  background-color: rgb(206, 205, 205);
-  border-radius: 18px;
-}
-.recipe-title{
-  font-weight: bold;
-  font-size: 20px;
-}
-.recipe-ingredients{
-  font-size: 0.8em;
-}
-
-.recipe-price{
-  color: #FF8816;
-  font-size: 25px;
-}
-
-/* form-styles */
-.add-btn{
-  background: var(--title) !important;
-}
-input{
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
-.side-form button{
-  background: var(--title);
-  box-shadow: 1px 1px 3px rgba(90,90,90,0.2);
-}
-form .input-field{
-  margin-top: 30px;
-}
-.icono-bote{
-  background-color: #f0f0f0;
-    border-radius: 50%;
-    padding: 4px; 
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    height: 30px;
-    width: 30px;
-    transition: all 0.3s ease;
-}
-.icono-bote:hover{
-  background-color: #ecc3c3;
-  transform: translateY(-5px);
-}
-
-.btn-small{
- border-radius: 18px;
-}
-
-.btn-img{
-    width: 85%;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
-    transition: .3s;
-    box-shadow: 0 3px 8px rgba(0,0,0,.15);
-}
-
-.btn-img:hover{
-    background: var(--title);
-    transform: translateY(-2px);
-}
-
-.btn-small:hover{
-  background-color: #f07e04;
-}
-
-.pedido-container{
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-}
-
-#formPedido{
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.input-field{
-    margin-bottom: 25px;
-}
-
-.botones{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.botones .btn{
-    display: inline-block !important;
-}
-
-.ubicacion{
-    margin-top:20px;
-}
-
-#btnUbi{
-    width:100%;
-    background:#42a5f5 !important;
-}
-
-#camara {
-  width: 100%;
-  padding: 10px;
-}
-
-#video {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 12px;
-  display: block;
-  margin: 0 auto;
-}
-
-#canvas {
-  display: none;
-}
-
-#salida {
-  text-align: center;
-  padding: 10px;
-}
-
-#btn-tomar-foto {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 5px solid white;
-  background: white;
-  cursor: pointer;
-  display: block;
-  margin: 16px auto;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-  padding: 0;
-}
-
-#btn-tomar-foto:active {
-  transform: scale(0.92);
-}
-
-#foto {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 12px;
-  margin-top: 12px;
-  display: none;
-}
-
-.about-logo {
-  display: flex;
-  justify-content: center;
-  margin: 25px 0 12px;
-}
-
-.about-logo img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  border-radius: 20px;
-}
-
-:root {
-  --naranja: #ee641b;
-  --naranja-claro: #fff0e6;
-  --texto: #263238;
-  --texto-suave: #71808b;
-}
-
-/* Fondo tipo aplicación */
-body.grey.lighten-4 {
+/* --------------------------------------------------------------------------
+   2. BASE / FONDO
+   -------------------------------------------------------------------------- */
+body.grey.lighten-4{
   min-height: 100vh;
+  color: var(--ink);
   background:
     radial-gradient(circle at 88% 5%, #ffd6b6 0, transparent 27%),
     linear-gradient(180deg, #fff8f3 0%, #f7f8fa 55%, #fff 100%);
-  color: var(--texto);
 }
 
-/* Barra superior */
-nav {
+/* --------------------------------------------------------------------------
+   3. BARRA SUPERIOR (nav)
+   Se elimina la versión vieja del nav (fondo beige --secondary con borde
+   naranja de 10px) porque quedaba tapada por esta versión, que es la que
+   realmente se ve en la app.
+   -------------------------------------------------------------------------- */
+nav{
   height: 72px;
   line-height: 72px;
   background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid rgba(238, 100, 27, 0.13);
   box-shadow: 0 5px 18px rgba(74, 49, 35, 0.08);
 }
-
-nav .nav-wrapper {
-  height: 72px;
-}
-
-nav a {
-  color: var(--naranja);
-  font-size: 1.12rem;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-}
-
-nav a span {
-  color: var(--texto);
-}
-
-nav .material-icons {
-  color: var(--texto-suave);
-  font-size: 29px;
-  line-height: 72px;
-}
-
-/* Contenido */
-.about-page {
-  max-width: 540px;
-  padding-top: 28px;
-  padding-bottom: 36px;
-}
-
-/* Ícono con tarjeta y sombra */
-.about-logo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.about-logo img {
-  width: 112px;
-  height: 112px;
-  object-fit: contain;
-  padding: 8px;
-  background: #fff;
-  border: 1px solid #f0e7e2;
-  border-radius: 28px;
-  box-shadow:
-    0 12px 24px rgba(120, 77, 50, 0.14),
-    0 3px 7px rgba(120, 77, 50, 0.08);
-}
-
-.app-version {
-  margin: 0 0 22px;
-  color: var(--texto-suave);
-  text-align: center;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-}
-
-/* Tarjeta de descripción */
-.about-card {
-  padding: 25px 22px 18px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(238, 100, 27, 0.1);
-  border-radius: 24px;
-  box-shadow: 0 12px 30px rgba(67, 49, 38, 0.08);
-}
-
-.about-card h5 {
-  margin: 0 0 17px;
-  color: var(--texto);
-  text-align: center;
-  font-size: 1.48rem;
-  font-weight: 700;
-}
-
-.about-card h5::after {
-  display: block;
-  width: 42px;
-  height: 4px;
-  margin: 12px auto 0;
-  content: "";
-  background: linear-gradient(90deg, #ff9a4d, var(--naranja));
-  border-radius: 10px;
-}
-
-.about-card p {
-  margin: 0 0 15px;
-  color: var(--texto-suave);
-  font-size: 0.96rem;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.about-card p:last-child {
-  margin-bottom: 0;
-}
-
-/* Tarjeta de soporte */
-.contact-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 20px;
-  padding: 17px 19px;
-  background: var(--naranja-claro);
-  border: 1px solid #ffd7bd;
-  border-radius: 20px;
-}
-
-.contact-card > i {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  flex-shrink: 0;
-  color: #fff;
-  font-size: 24px;
-  line-height: 46px;
-  text-align: center;
-  background: linear-gradient(135deg, #ff9c54, var(--naranja));
-  border-radius: 15px;
-  box-shadow: 0 6px 13px rgba(238, 100, 27, 0.24);
-}
-
-.contact-card span,
-.contact-card a {
-  display: block;
-}
-
-.contact-card span {
-  margin-bottom: 2px;
-  color: var(--texto);
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-
-.contact-card a {
-  color: var(--naranja);
-  font-size: 0.86rem;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-}
-
-/* Ajuste para pantallas pequeñas */
-@media screen and (max-width: 600px) {
-  .about-page {
-    width: calc(100% - 32px);
-    padding-top: 22px;
-  }
-
-  .about-logo img {
-    width: 96px;
-    height: 96px;
-    border-radius: 24px;
-  }
-
-  .about-card {
-    padding: 22px 18px 16px;
-    border-radius: 21px;
-  }
-
-  .about-card h5 {
-    font-size: 1.3rem;
-  }
-
-  .about-card p {
-    font-size: 0.91rem;
-  }
-}
-
-:root {
-  --primary: #ee641b;
-  --primary-soft: #fff0e7;
-  --primary-light: #ffb37a;
-  --ink: #28333c;
-  --muted: #71808b;
-  --surface: #ffffff;
-}
-
-/* Fondo y navegación */
-body.grey.lighten-4 {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at 100% 0%, #ffcfac 0, transparent 27rem),
-    linear-gradient(180deg, #fff8f4 0%, #f6f8fa 48%, #ffffff 100%);
-}
-
-nav {
-  height: 72px;
-  line-height: 72px;
-  background: rgba(255, 255, 255, 0.94);
-  border-bottom: 1px solid rgba(238, 100, 27, 0.12);
-  box-shadow: 0 5px 18px rgba(62, 47, 36, 0.08);
-}
-
-nav .nav-wrapper {
-  height: 72px;
-}
-
-nav a {
+nav .nav-wrapper{ height: 72px; }
+nav a{
   color: var(--primary);
   font-size: 1.12rem;
   font-weight: 800;
   letter-spacing: 0.2px;
 }
+nav a span{ color: var(--ink); font-weight: bold; }
+nav .material-icons{ color: var(--muted); font-size: 29px; line-height: 72px; }
+nav .sidenav-trigger{ margin: 0; }
 
-nav a span {
-  color: var(--ink);
-}
-
-nav .material-icons {
-  color: var(--muted);
-  font-size: 29px;
-  line-height: 72px;
-}
-
-/* Lista de platillos */
-.recipes {
+/* --------------------------------------------------------------------------
+   4. LISTA DE PLATILLOS (home)
+   OJO: el HTML debe usar la clase "recipe-ingredientes" (no
+   "recipe-ingredients"); son nombres distintos y si el HTML usa la
+   versión en inglés, este bloque no se va a aplicar. Conviene revisarlo.
+   -------------------------------------------------------------------------- */
+.recipes{
   max-width: 620px;
   padding-top: 25px;
   padding-bottom: 88px;
+  margin-top: 20px;
 }
 
-.recipe.card-panel {
+.recipe.card-panel{
   display: flex;
   align-items: center;
   min-height: 130px;
@@ -480,14 +82,12 @@ nav .material-icons {
   box-shadow: 0 9px 22px rgba(51, 62, 72, 0.08);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
-
-.recipe.card-panel:hover {
+.recipe.card-panel:hover{
   transform: translateY(-3px);
   box-shadow: 0 14px 28px rgba(51, 62, 72, 0.13);
 }
 
-/* Imagen del platillo */
-.recipe .recipe-img {
+.recipe .recipe-img{
   width: 58px !important;
   height: 58px !important;
   flex: 0 0 58px;
@@ -497,8 +97,8 @@ nav .material-icons {
   border: 1px solid #ffe0cb;
   border-radius: 15px;
 }
-/* Información */
-.recipe .recipe-details {
+
+.recipe .recipe-details{
   display: grid;
   width: 100%;
   min-width: 0;
@@ -506,16 +106,14 @@ nav .material-icons {
   column-gap: 10px;
   align-items: center;
 }
-
-.recipe .recipe-title {
+.recipe .recipe-title{
   grid-column: 1;
   color: var(--ink);
   font-size: 1.12rem;
   font-weight: 800;
   line-height: 1.2;
 }
-
-.recipe .recipe-ingredientes {
+.recipe .recipe-ingredientes{
   grid-column: 1 / -1;
   margin: 6px 0;
   overflow: hidden;
@@ -525,8 +123,7 @@ nav .material-icons {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.recipe .recipe-price {
+.recipe .recipe-price{
   grid-column: 1;
   color: var(--primary);
   font-size: 1.5rem;
@@ -534,16 +131,14 @@ nav .material-icons {
   line-height: 1;
 }
 
-/* Botón eliminar */
-.recipe .recipe-delete {
+.recipe .recipe-delete{
   grid-column: 2;
   grid-row: 1 / 4;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.recipe .icono-bote {
+.recipe .icono-bote{
   width: 42px;
   height: 42px;
   padding: 10px;
@@ -553,14 +148,13 @@ nav .material-icons {
   border-radius: 14px;
   transition: background 180ms ease, transform 180ms ease;
 }
-
-.recipe .icono-bote:hover {
+.recipe .icono-bote:hover{
   background: #ffe0d1;
   transform: scale(1.08);
 }
 
-/* Botón flotante para agregar */
-.add-btn.btn-floating {
+/* Botón flotante "Agregar" */
+.add-btn.btn-floating{
   position: fixed;
   right: 24px;
   bottom: 25px;
@@ -571,288 +165,30 @@ nav .material-icons {
   border-radius: 19px;
   box-shadow: 0 10px 20px rgba(238, 100, 27, 0.35);
 }
-
-.add-btn.btn-floating i {
-  font-size: 30px;
-  line-height: 58px;
-}
-
-.add-btn.btn-floating:hover {
+.add-btn.btn-floating i{ font-size: 30px; line-height: 58px; }
+.add-btn.btn-floating:hover{
   background: linear-gradient(135deg, var(--primary), #d94c0b);
   box-shadow: 0 13px 25px rgba(238, 100, 27, 0.45);
-  transform: translateY(-2px);
-}
-
-/* Panel para agregar platillo */
-.side-form {
-  width: min(380px, 88vw);
-  padding-top: 18px;
-  background: #fff;
-  border-radius: 0 24px 24px 0;
-}
-
-.side-form .add-recipe h6 {
-  margin: 0 0 18px;
-  color: var(--ink);
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-.side-form input:focus {
-  border-bottom: 1px solid var(--primary) !important;
-  box-shadow: 0 1px 0 0 var(--primary) !important;
-}
-
-.side-form .btn-small,
-.side-form .btn-img {
-  padding: 0 20px;
-  color: #fff;
-  background: var(--primary);
-  border: 0;
-  border-radius: 12px;
-  box-shadow: 0 5px 12px rgba(238, 100, 27, 0.25);
-}
-
-/* Móvil */
-@media screen and (max-width: 600px) {
-  .recipes {
-    width: calc(100% - 28px);
-    padding-top: 18px;
-  }
-
-  .recipe.card-panel {
-    min-height: 112px;
-    padding: 13px;
-    border-radius: 19px;
-  }
-
-  .recipe .recipe-img {
-    width: 70px !important;
-    height: 70px !important;
-    flex-basis: 70px;
-    margin-right: 13px;
-    border-radius: 15px;
-  }
-
-  .recipe .recipe-title {
-    font-size: 1rem;
-  }
-
-  .recipe .recipe-ingredientes {
-    font-size: 0.79rem;
-  }
-
-  .recipe .recipe-price {
-    font-size: 1.3rem;
-  }
-
-  .recipe .icono-bote {
-    width: 37px;
-    height: 37px;
-    padding: 9px;
-  }
-
-  .add-btn.btn-floating {
-    right: 20px;
-    bottom: 20px;
-  }
-}
-
-/* Página de pedidos */
-.pedido-container {
-  width: min(620px, calc(100% - 32px));
-  margin: 28px auto 40px;
-}
-
-#formPedido {
-  padding: 25px 23px 18px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(238, 100, 27, 0.1);
-  border-radius: 24px;
-  box-shadow: 0 12px 30px rgba(58, 52, 46, 0.09);
-}
-
-/* Campos */
-#formPedido .input-field {
-  margin: 0 0 28px;
-}
-
-#formPedido label {
-  color: #8694a0;
-  font-size: 0.88rem;
-}
-
-#formPedido input[type="text"],
-#formPedido select {
-  color: #263238;
-  font-size: 1rem;
-  border-bottom: 1px solid #d8dfe3;
-}
-
-#formPedido input[type="text"]:focus {
-  border-bottom: 2px solid #ee641b !important;
-  box-shadow: none !important;
-}
-
-#formPedido input[type="text"]:focus + label {
-  color: #ee641b !important;
-}
-
-/* Contenedor del select de Materialize */
-#formPedido .select-wrapper input.select-dropdown {
-  color: #263238;
-  font-size: 1rem;
-  border-bottom: 1px solid #d8dfe3;
-}
-
-#formPedido .select-wrapper input.select-dropdown:focus {
-  border-bottom: 2px solid #ee641b;
-}
-
-/* Botones Cancelar / Guardar */
-.botones {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding-top: 3px;
-}
-
-.botones .btn {
-  height: 43px;
-  padding: 0 20px;
-  line-height: 43px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.7px;
-  border-radius: 12px;
-  box-shadow: none;
-}
-
-.botones .btn.grey {
-  color: #62717c;
-  background: #edf1f3 !important;
-}
-
-.botones .btn.orange {
-  color: #fff;
-  background: linear-gradient(135deg, #ff9b4b, #ee641b) !important;
-  box-shadow: 0 7px 14px rgba(238, 100, 27, 0.25);
-}
-
-/* Ubicación y mapa */
-.ubicacion {
-  margin-top: 18px;
-  padding: 0;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(238, 100, 27, 0.1);
-  border-radius: 22px;
-  box-shadow: 0 10px 24px rgba(58, 52, 46, 0.08);
-}
-
-#btnUbi.btn.blue {
-  width: 100%;
-  height: 50px;
-  color: #fff;
-  line-height: 50px;
-  background: linear-gradient(135deg, #4dafe9, #2587cf) !important;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-#mapa {
-  height: 230px;
-  margin: 0;
-  border-radius: 0 0 22px 22px;
-}
-
-/* Botones de zoom de Leaflet */
-.leaflet-control-zoom {
-  overflow: hidden;
-  border: 0 !important;
-  border-radius: 12px !important;
-  box-shadow: 0 5px 13px rgba(48, 67, 80, 0.18) !important;
-}
-
-.leaflet-control-zoom a {
-  color: #4a5c68 !important;
-  border: 0 !important;
-}
-
-/* Ajuste para celular */
-@media screen and (max-width: 600px) {
-  .pedido-container {
-    width: calc(100% - 28px);
-    margin-top: 20px;
-  }
-
-  #formPedido {
-    padding: 22px 18px 16px;
-    border-radius: 21px;
-  }
-
-  .botones .btn {
-    flex: 1;
-    padding: 0 10px;
-  }
-
-  #mapa {
-    height: 210px;
-  }
-}
-
-/* Hover general para botones */
-.btn,
-.btn-floating,
-.btn-img {
-  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
-}
-
-.btn:hover,
-.btn-floating:hover,
-.btn-img:hover {
-  filter: brightness(1.06);
-  transform: translateY(-2px);
-}
-
-/* Botón Guardar */
-.botones .btn.orange:hover {
-  background: linear-gradient(135deg, #ee641b, #cf4809) !important;
-  box-shadow: 0 10px 19px rgba(238, 100, 27, 0.38);
-}
-
-/* Botón Cancelar */
-.botones .btn.grey:hover {
-  background: #dce4e8 !important;
-  box-shadow: 0 7px 14px rgba(73, 90, 100, 0.15);
-}
-
-/* Botón Obtener ubicación */
-#btnUbi.btn.blue:hover {
-  background: linear-gradient(135deg, #2587cf, #126daa) !important;
-  box-shadow: 0 7px 15px rgba(37, 135, 207, 0.28);
-}
-
-/* Botón flotante Agregar */
-.add-btn.btn-floating:hover {
   transform: translateY(-3px) scale(1.04);
 }
-/* Panel: Nuevo platillo */
-#side-form.side-form {
+
+/* --------------------------------------------------------------------------
+   5. PANEL LATERAL "NUEVO PLATILLO" (side-form)
+   -------------------------------------------------------------------------- */
+#side-form.side-form{
   width: min(400px, 90vw);
   padding: 0;
   overflow-y: auto;
   background: #fff;
   border-radius: 0 26px 26px 0;
 }
-
-#side-form .add-recipe {
+#side-form .add-recipe{
   width: 100%;
   margin: 0;
   padding: 27px 23px 30px;
 }
 
-.form-header {
+.form-header{
   display: flex;
   align-items: center;
   gap: 13px;
@@ -860,71 +196,91 @@ nav .material-icons {
   padding-bottom: 19px;
   border-bottom: 1px solid #edf0f2;
 }
-
-.form-icon {
+.form-icon{
   display: grid;
   width: 46px;
   height: 46px;
   place-items: center;
   color: #fff;
-  background: linear-gradient(135deg, #ff9c52, #ee641b);
+  background: linear-gradient(135deg, #ff9c52, var(--primary));
   border-radius: 15px;
   box-shadow: 0 7px 14px rgba(238, 100, 27, 0.24);
 }
+.form-icon i{ font-size: 24px; }
+.form-header h6{ margin: 0 0 3px; color: var(--ink); font-size: 1.2rem; font-weight: 800; }
+.form-header p{ margin: 0; color: #84929d; font-size: 0.79rem; }
 
-.form-icon i {
-  font-size: 24px;
+/* Campos con etiqueta arriba del input (usados en el panel de platillo).
+   Se usa grid en vez de position:absolute con valores fijos: así el
+   ícono siempre queda centrado según la altura REAL que termine
+   teniendo el input, sin depender de adivinar píxeles. */
+#side-form .campo-form{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto auto;
+  margin: 0 0 27px;
 }
-
-.form-header h6 {
-  margin: 0 0 3px;
-  color: #28333c;
-  font-size: 1.2rem;
-  font-weight: 800;
+#side-form .campo-form .field-label{
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: block;
+  margin: 0 0 6px 2px;
+  color: #7b8994;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  transform: none !important;
 }
-
-.form-header p {
-  margin: 0;
-  color: #84929d;
-  font-size: 0.79rem;
-}
-
-#side-form .input-field {
-  margin: 0 0 25px;
-}
-
-#side-form .input-field .prefix {
-  top: 8px;
+#side-form .campo-form .prefix{
+  grid-column: 1;
+  grid-row: 2;
+  z-index: 1;
+  align-self: center;
+  justify-self: center;
+  margin-top: 6px;          /* lo baja un poco respecto al centro exacto */
   color: #a2adb5;
-  font-size: 21px;
+  font-size: 20px;
+  line-height: 1;
+  pointer-events: none;    /* que no bloquee el click sobre el input */
+}
+#side-form .campo-form input{
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: 54px;
+  margin: 0;
+  padding-left: 46px !important;
+  background: #fbfcfd;
+  border: 1px solid #dfe5e8 !important;
+  border-radius: 14px !important;
+}
+#side-form .campo-form input:focus{
+  background: #fff;
+  border: 2px solid var(--primary) !important;
+  box-shadow: none !important;
 }
 
-#side-form .input-field input {
+/* Campos estándar (sin field-label) */
+#side-form .input-field{ margin: 0 0 25px; }
+#side-form .input-field .prefix{ top: 8px; color: #a2adb5; font-size: 21px; }
+#side-form .input-field input{
   box-sizing: border-box;
   height: 48px;
   margin: 0;
   padding-left: 40px !important;
-  color: #28333c;
+  color: var(--ink);
   border: 1px solid #dfe5e8 !important;
   border-radius: 13px !important;
 }
-
-#side-form .input-field label {
-  left: 40px;
-  color: #84929d;
-}
-
-#side-form .input-field input:focus {
-  border: 2px solid #ee641b !important;
+#side-form .input-field label{ left: 40px; color: #84929d; }
+#side-form .input-field input:focus{
+  border: 2px solid var(--primary) !important;
   box-shadow: none !important;
 }
+#side-form .input-field input:focus + label{ color: var(--primary) !important; }
 
-#side-form .input-field input:focus + label {
-  color: #ee641b !important;
-}
-
-/* Botón para abrir la cámara */
-.btn-img {
+/* Botón "Tomar foto" (abre cámara) */
+.btn-img{
+  box-sizing: border-box;
   display: flex;
   width: 100%;
   height: 49px;
@@ -932,7 +288,8 @@ nav .material-icons {
   justify-content: center;
   gap: 9px;
   margin: 7px 0 18px;
-  color: #ee641b;
+  padding: 0;
+  color: var(--primary);
   font-size: 0.86rem;
   font-weight: 700;
   background: #fff4ed;
@@ -941,76 +298,11 @@ nav .material-icons {
   cursor: pointer;
   transition: 180ms ease;
 }
+.btn-img:hover{ background: #ffe6d6; transform: translateY(-2px); }
+.btn-img i{ font-size: 20px; }
 
-.btn-img:hover {
-  background: #ffe6d6;
-  transform: translateY(-2px);
-}
-
-.btn-img i {
-  font-size: 20px;
-}
-
-/* Cámara y fotografía */
-#camara {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: #263238;
-  border-radius: 17px;
-  max-height:170px; /* limita el alto total */
-}
-
-#video {
-  display: none;
-  width: 100%;
-  height: 170px;      /* fuerza el alto en vez de solo max-height */
-  object-fit: cover;
-}
-
-#canvas {
-  display: none;
-}
-
-#btn-tomar-foto {
-  position: absolute;
-  bottom: 13px;
-  display: flex;
-  width: 47px;
-  height: 47px;
-  align-items: center;
-  justify-content: center;
-  color: #ee641b;
-  background: #fff;
-  border: 3px solid #ffe1cc;
-  border-radius: 50%;
-  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-#btn-tomar-foto:hover {
-  transform: scale(1.08);
-}
-
-#salida {
-  display: flex;
-  justify-content: center;
-}
-
-#foto {
-  display: none;
-  width: 100%;
-  height: 170px;       /* mismo alto que le diste a #video */
-  margin-top: 12px;
-  object-fit: cover;
-  border: 1px solid #ffe0cc;
-  border-radius: 17px;
-}
-
-/* Botón final */
-.btn-agregar {
+/* Botón final "Agregar platillo" */
+.btn-agregar{
   display: flex;
   width: 100%;
   height: 50px;
@@ -1020,69 +312,344 @@ nav .material-icons {
   margin-top: 22px;
   color: #fff;
   font-weight: 700;
-  background: linear-gradient(135deg, #ff9e54, #ee641b);
+  background: linear-gradient(135deg, #ff9e54, var(--primary));
   border: 0;
   border-radius: 14px;
   box-shadow: 0 8px 16px rgba(238, 100, 27, 0.28);
   cursor: pointer;
   transition: 180ms ease;
 }
-
-.btn-agregar:hover {
+.btn-agregar:hover{
   box-shadow: 0 11px 21px rgba(238, 100, 27, 0.38);
   transform: translateY(-2px);
 }
 
-/* Campos con etiqueta separada: más aire y mejor lectura */
-#side-form .campo-form {
+/* Cámara / foto capturada */
+#camara{
   position: relative;
-  margin: 0 0 27px;
-  padding-top: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-height: 170px;
+  background: #263238;
+  border-radius: 17px;
 }
-
-#side-form .campo-form .field-label {
+#video{
+  display: none;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+#canvas{ display: none; }
+#btn-tomar-foto{
   position: absolute;
-  top: 0;
-  left: 2px;
-  display: block;
-  color: #7b8994;
+  bottom: 13px;
+  display: flex;
+  width: 47px;
+  height: 47px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--primary);
+  background: #fff;
+  border: 3px solid #ffe1cc;
+  border-radius: 50%;
+  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+#btn-tomar-foto:hover{ transform: scale(1.08); }
+#btn-tomar-foto:active{ transform: scale(0.92); }
+#salida{ display: flex; justify-content: center; padding: 10px; }
+#foto{
+  display: none;
+  width: 100%;
+  height: 170px;
+  margin-top: 12px;
+  object-fit: cover;
+  border: 1px solid #ffe0cc;
+  border-radius: 17px;
+}
+.oculto{ display: none !important; }
+
+/* --------------------------------------------------------------------------
+   6. PÁGINA "ABOUT"
+   -------------------------------------------------------------------------- */
+.about-page{
+  max-width: 540px;
+  padding-top: 28px;
+  padding-bottom: 36px;
+}
+.about-logo{
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 10px;
+}
+.about-logo img{
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #f0e7e2;
+  border-radius: 28px;
+  box-shadow: 0 12px 24px rgba(120, 77, 50, 0.14), 0 3px 7px rgba(120, 77, 50, 0.08);
+}
+.app-version{
+  margin: 0 0 22px;
+  color: var(--muted);
+  text-align: center;
   font-size: 0.82rem;
   font-weight: 600;
-  line-height: 1;
-  transform: none !important;
+  letter-spacing: 0.4px;
 }
 
-#side-form .campo-form .prefix {
-  top: 35px;
-  left: 13px;
-  color: #a2adb5;
+.about-card{
+  padding: 25px 22px 18px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(238, 100, 27, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(67, 49, 38, 0.08);
 }
+.about-card h5{
+  margin: 0 0 17px;
+  color: var(--ink);
+  text-align: center;
+  font-size: 1.48rem;
+  font-weight: 700;
+}
+.about-card h5::after{
+  display: block;
+  width: 42px;
+  height: 4px;
+  margin: 12px auto 0;
+  content: "";
+  background: linear-gradient(90deg, #ff9a4d, var(--primary));
+  border-radius: 10px;
+}
+.about-card p{
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  text-align: center;
+}
+.about-card p:last-child{ margin-bottom: 0; }
 
-#side-form .campo-form input {
-  height: 54px;
+/* Tarjeta de soporte (compartida entre About y Contacto) */
+.contact-support{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  padding: 17px 19px;
+  background: var(--primary-soft);
+  border: 1px solid #ffd7bd;
+  border-radius: 20px;
+}
+.contact-support > i,
+.support-icon{
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  place-items: center;
+  color: #fff;
+  font-size: 24px;
+  background: linear-gradient(135deg, #ff9c54, var(--primary));
+  border-radius: 15px;
+  box-shadow: 0 6px 13px rgba(238, 100, 27, 0.24);
+}
+.contact-support strong,
+.contact-support span{
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+.contact-support p,
+.contact-support a{
+  display: block;
   margin: 0;
-  padding-left: 46px !important;
-  background: #fbfcfd;
-  border: 1px solid #dfe5e8 !important;
-  border-radius: 14px !important;
+  color: var(--primary);
+  font-size: 0.86rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  text-decoration: none;
 }
 
-#side-form .campo-form input:focus {
-  background: #fff;
-  border: 2px solid #ee641b !important;
+/* --------------------------------------------------------------------------
+   7. PÁGINA "CONTACTO"
+   FIX PRINCIPAL: antes .contact-card no tenía "display" propio y heredaba
+   el "display:flex" de la tarjeta de soporte de arriba (mismo nombre de
+   clase reutilizado para dos cosas distintas). Por eso el título, el
+   párrafo y los ítems se veían todos amontonados en una fila.
+   Se agrega "display:block" explícito para que funcione como columna.
+   -------------------------------------------------------------------------- */
+.contact-page{
+  padding-top: 35px;
+  padding-bottom: 40px;
+}
+.contact-header{ margin-bottom: 28px; }
+.contact-icon{
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.contact-icon i{ font-size: 42px; color: var(--primary); }
+.contact-header h5{ color: var(--ink); font-weight: 700; margin: 8px 0; }
+.contact-header p{ margin: 0; color: var(--muted); }
+
+.contact-card{
+  display: block;                 /* <- fix: ya no hereda flex */
+  width: 100%;
+  max-width: 540px;
+  box-sizing: border-box;
+  margin: 0 auto 20px;
+  padding: 30px !important;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+.contact-card h5{ color: var(--ink); font-weight: 700; margin: 0 0 15px; text-align: center; }
+.contact-description{
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 25px !important;
+  color: var(--muted);
+  line-height: 1.7;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.contact-item{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  padding: 18px 0;
+  border-top: 1px solid #eeeeee;
+  box-sizing: border-box;
+}
+.contact-item-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: var(--primary-soft);
+  border-radius: 15px;
+}
+.contact-item-icon i{ color: var(--primary); font-size: 24px; }
+.contact-item-info{ flex: 1; min-width: 0; }
+.contact-label{ display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+.contact-item-info p{ margin: 0; color: var(--ink); font-weight: 500; word-break: break-word; }
+
+/* --------------------------------------------------------------------------
+   8. PÁGINA "PEDIDOS"
+   -------------------------------------------------------------------------- */
+.pedido-container{
+  width: min(620px, calc(100% - 32px));
+  margin: 28px auto 40px;
+}
+#formPedido{
+  padding: 25px 23px 18px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(238, 100, 27, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(58, 52, 46, 0.09);
+}
+#formPedido .input-field{ margin: 0 0 28px; }
+#formPedido label{ color: #8694a0; font-size: 0.88rem; }
+#formPedido input[type="text"],
+#formPedido select{
+  color: var(--ink);
+  font-size: 1rem;
+  border-bottom: 1px solid #d8dfe3;
+}
+#formPedido input[type="text"]:focus{
+  border-bottom: 2px solid var(--primary) !important;
   box-shadow: none !important;
 }
+#formPedido input[type="text"]:focus + label{ color: var(--primary) !important; }
+#formPedido .select-wrapper input.select-dropdown{
+  color: var(--ink);
+  font-size: 1rem;
+  border-bottom: 1px solid #d8dfe3;
+}
+#formPedido .select-wrapper input.select-dropdown:focus{ border-bottom: 2px solid var(--primary); }
 
-/* Separa el botón de foto del último campo */
-#side-form .btn-img {
-  margin-top: 7px;
-  margin-bottom: 20px;
+.botones{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding-top: 3px;
+}
+.botones .btn{
+  display: inline-block !important;
+  height: 43px;
+  padding: 0 20px;
+  line-height: 43px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.botones .btn.grey{ color: #62717c; background: #edf1f3 !important; }
+.botones .btn.grey:hover{ background: #dce4e8 !important; box-shadow: 0 7px 14px rgba(73, 90, 100, 0.15); }
+.botones .btn.orange{
+  color: #fff;
+  background: linear-gradient(135deg, #ff9b4b, var(--primary)) !important;
+  box-shadow: 0 7px 14px rgba(238, 100, 27, 0.25);
+}
+.botones .btn.orange:hover{
+  background: linear-gradient(135deg, var(--primary), #cf4809) !important;
+  box-shadow: 0 10px 19px rgba(238, 100, 27, 0.38);
 }
 
-
+.ubicacion{
+  margin-top: 18px;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(238, 100, 27, 0.1);
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(58, 52, 46, 0.08);
+}
+#btnUbi.btn.blue{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background: linear-gradient(135deg, #4dafe9, #2587cf) !important;
+  border-radius: 0;
+  box-shadow: none;
+}
+#btnUbi.btn.blue:hover{
+  background: linear-gradient(135deg, #2587cf, #126daa) !important;
+  box-shadow: 0 7px 15px rgba(37, 135, 207, 0.28);
+}
+#mapa{ height: 230px; margin: 0; border-radius: 0 0 22px 22px; }
+.leaflet-control-zoom{
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 5px 13px rgba(48, 67, 80, 0.18) !important;
+}
+.leaflet-control-zoom a{ color: #4a5c68 !important; border: 0 !important; }
 
 /* Resultado del pedido y código QR */
-.qr-resultado {
+.qr-resultado{
   display: flex;
   align-items: center;
   gap: 17px;
@@ -1093,8 +660,7 @@ nav .material-icons {
   border-radius: 22px;
   box-shadow: 0 10px 24px rgba(58, 52, 46, 0.08);
 }
-
-#test {
+#test{
   display: flex;
   width: 128px;
   height: 128px;
@@ -1106,15 +672,8 @@ nav .material-icons {
   border: 1px solid #edf0f2;
   border-radius: 15px;
 }
-
-#test img,
-#test canvas {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.qr-info span {
+#test img, #test canvas{ display: block; max-width: 100%; height: auto; }
+.qr-info span{
   display: block;
   margin-bottom: 5px;
   color: #8a98a3;
@@ -1123,37 +682,77 @@ nav .material-icons {
   letter-spacing: 0.4px;
   text-transform: uppercase;
 }
+.qr-info p{ margin: 0; color: var(--ink); font-size: 1.15rem; font-weight: 800; line-height: 1.3; }
 
-.qr-info p {
-  margin: 0;
-  color: #28333c;
-  font-size: 1.15rem;
-  font-weight: 800;
-  line-height: 1.3;
+/* --------------------------------------------------------------------------
+   9. ELEMENTOS COMPARTIDOS (formularios / botones sueltos)
+   -------------------------------------------------------------------------- */
+input{
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+form .input-field{ margin-top: 30px; }
+.side-form button{
+  background: var(--primary);
+  box-shadow: 1px 1px 3px rgba(90, 90, 90, 0.2);
+}
+.icono-bote{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  padding: 4px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.icono-bote:hover{ background-color: #ecc3c3; transform: translateY(-5px); }
+.btn-small{ border-radius: 18px; }
+.btn-small:hover{ background-color: #f07e04; }
+
+/* Hover genérico para botones */
+.btn, .btn-floating, .btn-img{
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+.btn:hover, .btn-floating:hover, .btn-img:hover{
+  filter: brightness(1.06);
+  transform: translateY(-2px);
 }
 
-@media screen and (max-width: 480px) {
-  .qr-resultado {
-    align-items: flex-start;
-    gap: 13px;
-    padding: 14px;
-  }
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 600px){
+  .recipes{ width: calc(100% - 28px); padding-top: 18px; }
+  .recipe.card-panel{ min-height: 112px; padding: 13px; border-radius: 19px; }
+  .recipe .recipe-img{ width: 70px !important; height: 70px !important; flex-basis: 70px; margin-right: 13px; border-radius: 15px; }
+  .recipe .recipe-title{ font-size: 1rem; }
+  .recipe .recipe-ingredientes{ font-size: 0.79rem; }
+  .recipe .recipe-price{ font-size: 1.3rem; }
+  .recipe .icono-bote{ width: 37px; height: 37px; padding: 9px; }
+  .add-btn.btn-floating{ right: 20px; bottom: 20px; }
 
-  #test {
-    width: 100px;
-    height: 100px;
-    flex-basis: 100px;
-  }
+  .about-page{ width: calc(100% - 32px); padding-top: 22px; }
+  .about-logo img{ width: 96px; height: 96px; border-radius: 24px; }
+  .about-card{ padding: 22px 18px 16px; border-radius: 21px; }
+  .about-card h5{ font-size: 1.3rem; }
+  .about-card p{ font-size: 0.91rem; }
 
-  .qr-info p {
-    font-size: 1rem;
-  }
+  .contact-page{ padding-top: 25px; }
+  .contact-card{ padding: 25px 20px !important; border-radius: 24px; }
+  .contact-description{ font-size: 14px; line-height: 1.6; }
+  .contact-item{ padding: 16px 0; }
+  .contact-item-info p{ font-size: 14px; }
+  .contact-support{ padding: 16px; }
+
+  .pedido-container{ width: calc(100% - 28px); margin-top: 20px; }
+  #formPedido{ padding: 22px 18px 16px; border-radius: 21px; }
+  .botones .btn{ flex: 1; padding: 0 10px; }
+  #mapa{ height: 210px; }
 }
-
-.oculto {
-  display: none !important;
-}
-
-#canvas {
-  display: none;
+@media screen and (max-width: 480px){
+  .qr-resultado{ align-items: flex-start; gap: 13px; padding: 14px; }
+  #test{ width: 100px; height: 100px; flex-basis: 100px; }
+  .qr-info p{ font-size: 1rem; }
 }
