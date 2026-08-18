@@ -36,6 +36,7 @@ formularioAgregar.addEventListener("submit", (e) => {
     formularioAgregar.title.value = "";
     formularioAgregar.ingredients.value = "";
     formularioAgregar.precio.value = "";
+    resetFotoCaptura(); 
     Swal.fire({
         title: '¡Muy bien!',
         text: 'Platillo agregado correctamente', 
@@ -43,6 +44,8 @@ formularioAgregar.addEventListener("submit", (e) => {
         confirmButtonText: 'Aceptar'
     });
 });
+
+
 
 
 const platilloBorrar = document.querySelector(".recipes");
@@ -87,4 +90,5 @@ platilloBorrar.addEventListener("click", (e) => {
         });
     }
 });
+
 

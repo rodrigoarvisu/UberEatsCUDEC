@@ -98,6 +98,8 @@ btnFoto.addEventListener("click", function () {
     });
 });
 
+
+
 video.addEventListener("canplay", () => {
   if (!streaming) {
     height = video.videoHeight / (video.videoWidth / width);
@@ -194,3 +196,16 @@ btnFoto.addEventListener("click", function () {
       console.log("No fue posible acceder a la cámara:", error);
     });
 });
+
+function resetFotoCaptura() {
+  foto.src = "";
+  foto.style.display = "none";
+  fotoInput.value = "";
+
+  camara.classList.add("oculto"); // 👈 solo la clase, sin style.display
+
+  video.style.display = "none";
+  video.srcObject = null;
+
+  btnTomarFoto.style.display = "none";
+}
